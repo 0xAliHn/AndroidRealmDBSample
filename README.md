@@ -30,7 +30,7 @@ public class MyBook extends RealmObject {
     public void setTitle(final String title) {
         this.title = title;
     }
-    ```
+```
 
 
 Annotation @Required means that title cannot be null.
@@ -46,7 +46,7 @@ All of the CRUD operations are made with the use of Realm instance. How?
         super.onCreate(savedInstanceState);
         mRealm = Realm.getInstance(getContext());
     }
-    ```
+```
 
 
 2. Do your operations on database. For example add or remove a book.
@@ -73,7 +73,7 @@ All of the CRUD operations are made with the use of Realm instance. How?
     private String getTrimmedTitle() {
         return mEditTitle.getText().toString().trim();
     }
-    ```
+```
 
 
 Each operation on database which is not the read operation, has to start with Realm.beginTransaction() and to end with Realm.commitTransaction(). There are two arguments for that – our data will always be in consistent state and it also ensures the thread safety. If you forget to commit your changes, they will not be saved. You can also cancel the transaction by calling Realm.cancelTransaction().
@@ -85,4 +85,4 @@ Each operation on database which is not the read operation, has to start with Re
         super.onDestroy();
         mRealm.close();
     }
-    ```
+```
